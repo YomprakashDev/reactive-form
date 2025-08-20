@@ -1,0 +1,241 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="onboardingForm"
+  class="max-w-5xl mx-auto p-6"
+>
+  <!-- STEP 1: Personal Info -->
+  @if (currentStep() === 1) {
+  <div class="space-y-4" formGroupName="personalDetails">
+    <h2 class="text-lg font-semibold text-gray-800">Personal Details</h2>
+    <p class="text-sm text-gray-600">
+      Please provide your personal information below.
+    </p>
+    <div>
+      <label class="block text-sm font-medium mb-1">Full name</label>
+      <input
+        class="w-full border rounded-lg p-2"
+        formControlName="name"
+        placeholder="Jane Doe"
+        required
+      />
+      @if(onboardingForm.get('personalDetails.name')?.invalid && onboardingForm.get('personalDetails.name')?.touched) {
+<p class="text-xs text-red-500">Please enter a valid name</p>
+      }
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Email</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="w-full border rounded-lg p-2"
+          placeholder="jane@company.com"
+        />
+          @if(onboardingForm.get('personalDetails.email')?.invalid && onboardingForm.get('personalDetails.email')?.touched) {
+<p class="text-xs text-red-500">Please enter a valid email</p>
+      }
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Phone No</label>
+        <input
+        maxlength="10"
+          type="tel"
+          formControlName="phone"
+          class="w-full border rounded-lg p-2"
+          placeholder="+1 (123) 456-7890"
+        />
+          @if(onboardingForm.get('personalDetails.phone')?.invalid && onboardingForm.get('personalDetails.phone')?.touched) {
+<p class="text-xs text-red-500">Please enter a valid phone number</p>
+      }
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium mb-1">Address</label>
+      <textarea
+        rows="3"
+        formControlName="address"
+        class="w-full border rounded-lg p-2"
+        placeholder="123 Main St, Anytown, USA"
+      ></textarea>
+      @if(onboardingForm.get('personalDetails.address')?.invalid && onboardingForm.get('personalDetails.address')?.touched) {
+<p class="text-xs text-red-500">Please enter a valid address</p>
+      }
+    </div>
+  </div>
+  }
+  <!-- STEP 2: Email confirmation -->
+  <!-- STEP 2: Company Details -->
+  @if (currentStep() === 2) {
+  <div class="space-y-4" formGroupName="companayDetails">
+    <h2 class="text-lg font-semibold text-gray-800">Company Details</h2>
+    <p class="text-sm text-gray-600">
+      Please provide your company information below.
+    </p>
+
+    <!-- Company Name -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700"
+        >Company Name</label
+      >
+      <input
+        formControlName="name"
+        type="text"
+        class="w-full border rounded-lg p-2 mt-1"
+        placeholder="e.g., Acme Corp"
+      />
+      @if(onboardingForm.get('companayDetails.name')?.invalid && onboardingForm.get('companayDetails.name')?.touched) {
+<p class="text-xs text-red-500">Please enter a valid company name</p>
+      }
+
+    </div>
+
+    <!-- Industry -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Industry</label>
+      <select
+        formControlName="industry"
+        class="w-full border rounded-lg p-2 mt-1"
+      >
+        <option value="" disabled selected>Select industry</option>
+        <option>Technology</option>
+        <option>Retail</option>
+        <option>Finance</option>
+        <option>Healthcare</option>
+        <option>Other</option>
+      </select>
+      @if(onboardingForm.get('companayDetails.industry')?.invalid && onboardingForm.get('companayDetails.industry')?.touched) {
+<p class="text-xs text-red-500">Please select an industry</p>
+      }
+
+    </div>
+
+    <!-- Company Size -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700"
+        >Company Size</label
+      >
+      <select
+        formControlName="companySize"
+        class="w-full border rounded-lg p-2 mt-1"
+      >
+        <option value="" disabled selected>Select size</option>
+        <option>1-10 employees</option>
+        <option>11-50 employees</option>
+        <option>51-200 employees</option>
+        <option>201-500 employees</option>
+        <option>500+ employees</option>
+      </select>
+      @if(onboardingForm.get('companayDetails.companySize')?.invalid && onboardingForm.get('companayDetails.companySize')?.touched) {
+<p class="text-xs text-red-500">Please select a company size</p>
+      }
+
+    </div>
+  </div>
+  }
+  <!-- STEP 3: Storefront details -->
+  @if (currentStep() === 3) {
+  <div class="space-y-4" formGroupName="storeDetails">
+    <div>
+      <label class="block text-sm font-medium mb-1">Store name</label>
+      <input
+        formControlName="storeName"
+        class="w-full border rounded-lg p-2"
+        placeholder="Acme Store"
+      />
+        
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-1">Category</label>
+      <select formControlName="category" class="w-full border rounded-lg p-2">
+        <option value="" selected disabled>Select a category</option>
+        <option>Clothing</option>
+        <option>Electronics</option>
+        <option>Home & Kitchen</option>
+        <option>Beauty</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-1">Store URL</label>
+      <div class="flex">
+        <span
+          class="inline-flex items-center px-3 rounded-l-lg border border-r-0 bg-gray-50 text-gray-600 text-sm"
+        >
+          myshop.com/
+        </span>
+        <input
+          formControlName="storeUrl"
+          class="w-full border rounded-r-lg p-2"
+          placeholder="acme"
+        />
+      </div>
+    </div>
+  </div>
+  }
+  <!-- STEP 4: Link bank account -->
+  @if (currentStep() === 4) {
+  <div class="space-y-4" formGroupName="bankDetails">
+    <div>
+      <label class="block text-sm font-medium mb-1">Account holder name</label>
+      <input
+        formControlName="accountHolderName"
+        class="w-full border rounded-lg p-2"
+        placeholder="Jane Doe"
+      />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Account number</label>
+        <input
+          formControlName="accountNumber"
+          class="w-full border rounded-lg p-2"
+          placeholder="XXXXXXXXXXXX"
+        />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">IFSC code</label>
+        <input
+          formControlName="ifscCode"
+          class="w-full border rounded-lg p-2 uppercase"
+          placeholder="HDFC0001234"
+        />
+      </div>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-1">Bank name (optional)</label>
+      <input
+        formControlName="bankName"
+        class="w-full border rounded-lg p-2"
+        placeholder="HDFC Bank"
+      />
+    </div>
+  </div>
+  }
+  <!-- STEP 5: Preview and confirm -->
+  @if (currentStep() === 5) {
+  <div class="space-y-4">
+    <p class="text-gray-600">
+      This is a static preview. Once we wire Reactive Forms, your entered data
+      will appear here.
+    </p>
+    <div class="rounded-lg border p-4 bg-gray-50 text-sm">
+      <p><span class="font-medium">Name:</span> —</p>
+      <p><span class="font-medium">Email:</span> —</p>
+      <p><span class="font-medium">Store:</span> —</p>
+      <p><span class="font-medium">Bank:</span> —</p>
+    </div>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" />
+      <span>I confirm the details are correct</span>
+    </label>
+  </div>
+  } @if(currentStep() === 5) {
+  <button
+    type="submit"
+    class="text-white font-bold py-2 px-4 rounded transition bg-blue-500 hover:bg-blue-700"
+  >
+    Submit
+  </button>
+  }
+</form>
