@@ -18,8 +18,9 @@
         placeholder="Jane Doe"
         required
       />
-      @if(onboardingForm.get('personalDetails.name')?.invalid && onboardingForm.get('personalDetails.name')?.touched) {
-<p class="text-xs text-red-500">Please enter a valid name</p>
+      @if(onboardingForm.get('personalDetails.name')?.invalid &&
+      onboardingForm.get('personalDetails.name')?.touched) {
+      <p class="text-xs text-red-500">Please enter a valid name</p>
       }
     </div>
 
@@ -32,22 +33,24 @@
           class="w-full border rounded-lg p-2"
           placeholder="jane@company.com"
         />
-          @if(onboardingForm.get('personalDetails.email')?.invalid && onboardingForm.get('personalDetails.email')?.touched) {
-<p class="text-xs text-red-500">Please enter a valid email</p>
-      }
+        @if(onboardingForm.get('personalDetails.email')?.invalid &&
+        onboardingForm.get('personalDetails.email')?.touched) {
+        <p class="text-xs text-red-500">Please enter a valid email</p>
+        }
       </div>
       <div>
         <label class="block text-sm font-medium mb-1">Phone No</label>
         <input
-        maxlength="10"
+          maxlength="10"
           type="tel"
           formControlName="phone"
           class="w-full border rounded-lg p-2"
           placeholder="+1 (123) 456-7890"
         />
-          @if(onboardingForm.get('personalDetails.phone')?.invalid && onboardingForm.get('personalDetails.phone')?.touched) {
-<p class="text-xs text-red-500">Please enter a valid phone number</p>
-      }
+        @if(onboardingForm.get('personalDetails.phone')?.invalid &&
+        onboardingForm.get('personalDetails.phone')?.touched) {
+        <p class="text-xs text-red-500">Please enter a valid phone number</p>
+        }
       </div>
     </div>
 
@@ -59,8 +62,9 @@
         class="w-full border rounded-lg p-2"
         placeholder="123 Main St, Anytown, USA"
       ></textarea>
-      @if(onboardingForm.get('personalDetails.address')?.invalid && onboardingForm.get('personalDetails.address')?.touched) {
-<p class="text-xs text-red-500">Please enter a valid address</p>
+      @if(onboardingForm.get('personalDetails.address')?.invalid &&
+      onboardingForm.get('personalDetails.address')?.touched) {
+      <p class="text-xs text-red-500">Please enter a valid address</p>
       }
     </div>
   </div>
@@ -85,10 +89,10 @@
         class="w-full border rounded-lg p-2 mt-1"
         placeholder="e.g., Acme Corp"
       />
-      @if(onboardingForm.get('companayDetails.name')?.invalid && onboardingForm.get('companayDetails.name')?.touched) {
-<p class="text-xs text-red-500">Please enter a valid company name</p>
+      @if(onboardingForm.get('companayDetails.name')?.invalid &&
+      onboardingForm.get('companayDetails.name')?.touched) {
+      <p class="text-xs text-red-500">Please enter a valid company name</p>
       }
-
     </div>
 
     <!-- Industry -->
@@ -105,10 +109,10 @@
         <option>Healthcare</option>
         <option>Other</option>
       </select>
-      @if(onboardingForm.get('companayDetails.industry')?.invalid && onboardingForm.get('companayDetails.industry')?.touched) {
-<p class="text-xs text-red-500">Please select an industry</p>
+      @if(onboardingForm.get('companayDetails.industry')?.invalid &&
+      onboardingForm.get('companayDetails.industry')?.touched) {
+      <p class="text-xs text-red-500">Please select an industry</p>
       }
-
     </div>
 
     <!-- Company Size -->
@@ -127,10 +131,11 @@
         <option>201-500 employees</option>
         <option>500+ employees</option>
       </select>
-      @if(onboardingForm.get('companayDetails.companySize')?.invalid && onboardingForm.get('companayDetails.companySize')?.touched) {
-<p class="text-xs text-red-500">Please select a company size</p>
+      @if(onboardingForm.get('companayDetails.companySize')?.invalid &&
+      onboardingForm.get('companayDetails.companySize')?.touched &&
+      onboardingForm.get('companayDetails.companySize')?.dirty) {
+      <p class="text-xs text-red-500">Please select a company size</p>
       }
-
     </div>
   </div>
   }
@@ -144,7 +149,10 @@
         class="w-full border rounded-lg p-2"
         placeholder="Acme Store"
       />
-        
+      @if(onboardingForm.get('storeDetails.storeName')?.invalid &&
+      onboardingForm.get('storeDetails.storeName')?.touched) {
+      <p class="text-xs text-red-500">Please enter a valid store name</p>
+      }
     </div>
     <div>
       <label class="block text-sm font-medium mb-1">Category</label>
@@ -155,6 +163,10 @@
         <option>Home & Kitchen</option>
         <option>Beauty</option>
       </select>
+      @if(onboardingForm.get('storeDetails.category')?.invalid &&
+      onboardingForm.get('storeDetails.category')?.touched) {
+      <p class="text-xs text-red-500">Please select a category</p>
+      }
     </div>
     <div>
       <label class="block text-sm font-medium mb-1">Store URL</label>
@@ -169,6 +181,10 @@
           class="w-full border rounded-r-lg p-2"
           placeholder="acme"
         />
+        @if(onboardingForm.get('storeDetails.storeUrl')?.invalid &&
+        onboardingForm.get('storeDetails.storeUrl')?.touched) {
+        <p class="text-xs text-red-500">Please enter a valid store URL</p>
+        }
       </div>
     </div>
   </div>
@@ -183,6 +199,12 @@
         class="w-full border rounded-lg p-2"
         placeholder="Jane Doe"
       />
+      @if(onboardingForm.get('bankDetails.accountHolderName')?.invalid &&
+      onboardingForm.get('bankDetails.accountHolderName')?.touched) {
+      <p class="text-xs text-red-500">
+        Please enter a valid account holder name
+      </p>
+      }
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
@@ -192,6 +214,10 @@
           class="w-full border rounded-lg p-2"
           placeholder="XXXXXXXXXXXX"
         />
+        @if(onboardingForm.get('bankDetails.accountNumber')?.invalid &&
+        onboardingForm.get('bankDetails.accountNumber')?.touched) {
+        <p class="text-xs text-red-500">Please enter a valid account number</p>
+        }
       </div>
       <div>
         <label class="block text-sm font-medium mb-1">IFSC code</label>
@@ -200,6 +226,10 @@
           class="w-full border rounded-lg p-2 uppercase"
           placeholder="HDFC0001234"
         />
+        @if(onboardingForm.get('bankDetails.ifscCode')?.invalid &&
+        onboardingForm.get('bankDetails.ifscCode')?.touched) {
+        <p class="text-xs text-red-500">Please enter a valid IFSC code</p>
+        }
       </div>
     </div>
     <div>
@@ -209,33 +239,90 @@
         class="w-full border rounded-lg p-2"
         placeholder="HDFC Bank"
       />
+      @if(onboardingForm.get('bankDetails.bankName')?.invalid &&
+      onboardingForm.get('bankDetails.bankName')?.touched) {
+      <p class="text-xs text-red-500">Please enter a valid bank name</p>
+      }
     </div>
   </div>
   }
   <!-- STEP 5: Preview and confirm -->
   @if (currentStep() === 5) {
-  <div class="space-y-4">
-    <p class="text-gray-600">
-      This is a static preview. Once we wire Reactive Forms, your entered data
-      will appear here.
-    </p>
+  <div class="space-y-4" formGroupName="confirm">
     <div class="rounded-lg border p-4 bg-gray-50 text-sm">
-      <p><span class="font-medium">Name:</span> —</p>
-      <p><span class="font-medium">Email:</span> —</p>
-      <p><span class="font-medium">Store:</span> —</p>
-      <p><span class="font-medium">Bank:</span> —</p>
+      <p>
+        <span class="font-medium">Name:</span>
+        {{ onboardingForm.get("personalDetails.name")?.value }}
+      </p>
+      <p>
+        <span class="font-medium">Email:</span>
+        {{ onboardingForm.get("personalDetails.email")?.value }}
+      </p>
+      <p>
+        <span class="font-medium">Company:</span
+        >{{ onboardingForm.get("companayDetails.name")?.value }}
+      </p>
+      <p>
+        <span class="font-medium">Industry:</span>
+        {{ onboardingForm.get("companayDetails.industry")?.value }}
+      </p>
+      <p>
+        <span class="font-medium">Store:</span>
+        {{ onboardingForm.get("storeDetails.storeUrl")?.value }}
+      </p>
+      <p>
+        <span class="font-medium">Bank account:</span>
+        {{ onboardingForm.get("bankDetails.accountNumber")?.value }}
+      </p>
     </div>
     <label class="flex items-center gap-2">
-      <input type="checkbox" />
+      <input formControlName="agree" type="checkbox" />
       <span>I confirm the details are correct</span>
     </label>
   </div>
+  }
+</form>
+<div class="flex max-w-5xl mx-auto px-8 w-full justify-between">
+  <!-- Previous -->
+  <button
+    [disabled]="currentStep() === 1"
+    (click)="prevStep()"
+    class="text-white font-bold py-2 px-4 rounded mr-2 transition"
+    [ngClass]="{
+      'bg-blue-500 hover:bg-blue-700': currentStep() !== 1,
+      'bg-gray-300 text-gray-500 cursor-not-allowed': currentStep() === 1
+    }"
+  >
+    Previous
+  </button>
+
+  <!-- Next -->
+  @if(currentStep() !== 5) {
+  <button
+    [disabled]="currentStep() === 5"
+    (click)="nextStep()"
+    class="text-white font-bold py-2 px-4 rounded transition"
+    [ngClass]="{
+      'bg-blue-500 hover:bg-blue-700': currentStep() !== 6,
+      'bg-gray-300 text-gray-500 cursor-not-allowed': currentStep() === 6
+    }"
+  >
+    Next
+  </button>
   } @if(currentStep() === 5) {
   <button
+    (click)="onSubmit()"
     type="submit"
+    [disabled]="onboardingForm.get('confirm.agree')?.value === false"
+    [ngClass]="{
+      'bg-blue-500 hover:bg-blue-700':
+        onboardingForm.get('confirm.agree')?.value === true,
+      'bg-gray-300 text-gray-500 cursor-not-allowed':
+        onboardingForm.get('confirm.agree')?.value === false
+    }"
     class="text-white font-bold py-2 px-4 rounded transition bg-blue-500 hover:bg-blue-700"
   >
     Submit
   </button>
   }
-</form>
+</div>

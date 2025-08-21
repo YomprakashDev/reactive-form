@@ -10,8 +10,8 @@
         <div
           class="w-10 h-10 rounded-full flex items-center justify-center transition"
           [ngClass]="{
-            'bg-blue-600 text-white': isCompleted($index) || isActive($index),
-            'border-2 border-blue-600 bg-white text-blue-600 font-semibold':
+            'bg-blue-600 text-white ': isCompleted($index), 'border-[4px] text-blue-600 border-blue-600  bg-white font-bold' : isActive($index),
+            'border-4 border-gray-200 bg-white text-gray-700 font-bold':
               !isCompleted($index) && !isActive($index)
           }"
         >

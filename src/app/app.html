@@ -2,32 +2,4 @@
 
 <app-onbaording-form ></app-onbaording-form>
 
-<div class="flex max-w-5xl mx-auto px-8 w-full justify-between">
-  <!-- Previous -->
-  <button
-    [disabled]="currentStep() === 1"
-    (click)="prevStep()"
-    class="text-white font-bold py-2 px-4 rounded mr-2 transition"
-    [ngClass]="{
-      'bg-blue-500 hover:bg-blue-700': currentStep() !== 1,
-      'bg-gray-300 text-gray-500 cursor-not-allowed': currentStep() === 1
-    }"
-  >
-    Previous
-  </button>
 
-  <!-- Next -->
-  @if(currentStep() !== 5) {
-  <button
-    [disabled]="currentStep() === 5"
-    (click)="nextStep()"
-    class="text-white font-bold py-2 px-4 rounded transition"
-    [ngClass]="{
-      'bg-blue-500 hover:bg-blue-700': currentStep() !== 6,
-      'bg-gray-300 text-gray-500 cursor-not-allowed': currentStep() === 6
-    }"
-  >
-    Next
-  </button>
-  }
-</div>

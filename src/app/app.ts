@@ -7,7 +7,7 @@ import { User } from './services/user';
 
 @Component({
   selector: 'app-root',
-  imports: [Steps, NgClass, OnbaordingForm],
+  imports: [Steps, OnbaordingForm],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -18,6 +18,5 @@ export class App {
 
   currentStep = this.userService.currentStep
 
-  prevStep() { this.userService.prevStep() }
-  nextStep() { this.userService.nextStep() }
+
 }
