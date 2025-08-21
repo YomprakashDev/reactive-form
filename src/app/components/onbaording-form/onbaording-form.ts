@@ -31,7 +31,7 @@ export class OnbaordingForm {
         address: ['', Validators.required],
       }),
       // STEP 2: Company Details
-      companayDetails: this.fb.group({
+      companyDetails: this.fb.group({
         name: ['', Validators.required],
         industry: ['', Validators.required],
         companySize: ['', Validators.required],
@@ -57,7 +57,7 @@ export class OnbaordingForm {
   private getStepGroup(step = this.currentStep()): FormGroup {
     switch (step) {
       case 1: return this.onboardingForm.get('personalDetails') as FormGroup;
-      case 2: return this.onboardingForm.get('companayDetails') as FormGroup;
+      case 2: return this.onboardingForm.get('companyDetails') as FormGroup;
       case 3: return this.onboardingForm.get('storeDetails') as FormGroup;
       case 4: return this.onboardingForm.get('bankDetails') as FormGroup;
       case 5: return this.onboardingForm.get('confirm') as FormGroup;

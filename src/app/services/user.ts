@@ -7,7 +7,7 @@ export class User {
   currentStep = signal<number>(1);
 
   prevStep() {
-    if (this.currentStep() > 0) {
+    if (this.currentStep() > 1) {
       this.currentStep.update(current => current - 1)
     }
 

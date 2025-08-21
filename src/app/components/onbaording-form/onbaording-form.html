@@ -72,7 +72,7 @@
   <!-- STEP 2: Email confirmation -->
   <!-- STEP 2: Company Details -->
   @if (currentStep() === 2) {
-  <div class="space-y-4" formGroupName="companayDetails">
+  <div class="space-y-4" formGroupName="companyDetails">
     <h2 class="text-lg font-semibold text-gray-800">Company Details</h2>
     <p class="text-sm text-gray-600">
       Please provide your company information below.
@@ -89,8 +89,8 @@
         class="w-full border rounded-lg p-2 mt-1"
         placeholder="e.g., Acme Corp"
       />
-      @if(onboardingForm.get('companayDetails.name')?.invalid &&
-      onboardingForm.get('companayDetails.name')?.touched) {
+      @if(onboardingForm.get('companyDetails.name')?.invalid &&
+      onboardingForm.get('companyDetails.name')?.touched) {
       <p class="text-xs text-red-500">Please enter a valid company name</p>
       }
     </div>
@@ -109,8 +109,8 @@
         <option>Healthcare</option>
         <option>Other</option>
       </select>
-      @if(onboardingForm.get('companayDetails.industry')?.invalid &&
-      onboardingForm.get('companayDetails.industry')?.touched) {
+      @if(onboardingForm.get('companyDetails.industry')?.invalid &&
+      onboardingForm.get('companyDetails.industry')?.touched) {
       <p class="text-xs text-red-500">Please select an industry</p>
       }
     </div>
@@ -131,9 +131,9 @@
         <option>201-500 employees</option>
         <option>500+ employees</option>
       </select>
-      @if(onboardingForm.get('companayDetails.companySize')?.invalid &&
-      onboardingForm.get('companayDetails.companySize')?.touched &&
-      onboardingForm.get('companayDetails.companySize')?.dirty) {
+      @if(onboardingForm.get('companyDetails.companySize')?.invalid &&
+      onboardingForm.get('companyDetails.companySize')?.touched &&
+      onboardingForm.get('companyDetails.companySize')?.dirty) {
       <p class="text-xs text-red-500">Please select a company size</p>
       }
     </div>
@@ -142,6 +142,10 @@
   <!-- STEP 3: Storefront details -->
   @if (currentStep() === 3) {
   <div class="space-y-4" formGroupName="storeDetails">
+    <h2 class="text-lg font-semibold text-gray-800">Store Details</h2>
+  <p class="text-sm text-gray-600">
+    Please provide your store information below.
+  </p>
     <div>
       <label class="block text-sm font-medium mb-1">Store name</label>
       <input
@@ -260,11 +264,11 @@
       </p>
       <p>
         <span class="font-medium">Company:</span
-        >{{ onboardingForm.get("companayDetails.name")?.value }}
+        >{{ onboardingForm.get("companyDetails.name")?.value }}
       </p>
       <p>
         <span class="font-medium">Industry:</span>
-        {{ onboardingForm.get("companayDetails.industry")?.value }}
+        {{ onboardingForm.get("companyDetails.industry")?.value }}
       </p>
       <p>
         <span class="font-medium">Store:</span>
